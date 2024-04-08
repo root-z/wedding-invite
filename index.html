@@ -16,16 +16,19 @@
 
     body,
     html {
+      /* font-family: 'Times New Roman', Times, serif; */
       height: 100%
     }
 
     p {
-      line-height: 2
+      line-height: 2;
+      font-family:'Times New Roman', Times, serif
     }
 
     .bgimg,
     .bgimg2,
-    .bgimg3 {
+    .bgimg3,
+    .bgimg4 {
       min-height: 100%;
       background-position: right 50% bottom 70%;
       background-size: cover;
@@ -42,6 +45,10 @@
     .bgimg3 {
       background-image: url("images/page3.jpg")
     }
+
+    .bgimg4 {
+      background-image: url("images/page4.jpg")
+    }
   </style>
 </head>
 
@@ -50,8 +57,17 @@
     <source src="music/bg-memory.mp3" type="audio/mp3">
   </audio>
 
+<div class="w3-container w3-padding-64 w3-pale-red w3-center slides" id="verification" hidden="false">
+  <form>
+  <label for="code" style="color:#bf9858;font-size: 25px;"> Please enter your invitation code :)</label>
+  <input class="w3-input" type="text" id="code" name="code" />
+  <input class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" type="button" id="codeButton" value="Enter" style="width: 100%;" />
+  </form>
+
+</div>
+
   <!-- Header / Home-->
-  <div class="container">
+  <div class="container" id="main" hidden>
     <div class="w3-display-container w3-wide bgimg slides" id="home">
       <div class="top image-text-black w3-center">
         <h1 class="w3-jumbo"><b>2024.05.21</b></h1>
@@ -113,10 +129,17 @@
       </div>
     </div>
 
+    <div class="w3-display-container w3-wide slides bgimg4" id="dress">
+      <div class="w3-content image-text-dark w3-center lower-middle" >
+        <h1>Dress Code</h1>
+        <h3 style="font-family: 'Times';font-size: 22px;">Smart Casual Attire (no denim of any description, no athletic wear)</h3>
+      </div>
+    </div>
+
     <!-- RSVP section -->
     <div class="w3-container w3-padding-64 w3-pale-red w3-center slides" id="rsvp">
       <div class="w3-content w3-center image-text-dark">
-        <h3 >Kindly Respond By May 12th, 2024</h3>
+        <h3 >Kindly Respond By April 21st, 2024</h3>
         <br />
         <p class="w3-xlarge">
           <button id="rsvpButton" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off"
@@ -227,19 +250,39 @@
     }
     return result;
   };
-  let code = prompt('enter your invitation code to view this website :)')
-  if (code === null || sha256(code) !== '7daea6d8b16078d32df277d20991cf89c0efbb13b7b7f4c55f6c3d35adc87ff9') {
-    document.body.innerHTML = 'Oops you have entered the wrong code.'
-  } else {
-    document.addEventListener('click', musicPlay);
-    function musicPlay() {
-      document.getElementById('bgMusic').play();
-      document.removeEventListener('click', musicPlay);
+  // let code = prompt('enter your invitation code to view this website :)')
+  // if (code === null || sha256(code) !== '7daea6d8b16078d32df277d20991cf89c0efbb13b7b7f4c55f6c3d35adc87ff9') {
+    // document.body.innerHTML = 'Oops you have entered the wrong code.'
+  // } else {
+    let button = document.getElementById('codeButton');
+    button.addEventListener('click', verify);
+    function verify() {
+      let verificationCode = document.getElementById('code').value;
+      if (verificationCode === undefined || sha256(verificationCode) !== '7daea6d8b16078d32df277d20991cf89c0efbb13b7b7f4c55f6c3d35adc87ff9') {
+        alert('Your invitation code is incorrect!');
+      } else {
+        document.getElementById('verification').remove();
+        document.getElementById('main').hidden = false;
+        document.getElementById('bgMusic').play();
+      }
     }
+
+    document.getElementById('code').addEventListener('keypress', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('codeButton').click();
+      }
+    })
+
+    // document.addEventListener('click', musicPlay);
+    // function musicPlay() {
+      
+    //   document.removeEventListener('click', musicPlay);
+    // }
     document.getElementById("rsvpButton").onclick = function () {
       location.href = 'https://forms.gle/87RBWECPwogMZy719'
     }
-  }
+  // }
 
 
 
