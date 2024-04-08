@@ -40,6 +40,14 @@
   -ms-transform: translate(-50%, -50%);
 }
 
+.lower-left {
+  position: absolute;
+  top: 75%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .top {
   position: absolute;
   top: 5%;
@@ -50,7 +58,7 @@
 
 .top-right {
   position: absolute;
-  top: 5%;
+  top: 25%;
   left: 75%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
