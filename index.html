@@ -59,9 +59,7 @@
 </head>
 
 <body>
-  <audio id="bgMusic" autoplay loop hidden>
-    <source src="music/bg-memory.mp3" type="audio/mp3">
-  </audio>
+
 
   <div class="w3-container w3-padding-64 w3-pale-red w3-center slides" id="verification" hidden="false">
     <form>
@@ -70,8 +68,9 @@
       <input class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" type="button" id="codeButton"
         value="Enter" style="width: 100%;" />
     </form>
-
   </div>
+
+
 
   <!-- Header / Home-->
   <div class="container" id="main" hidden>
@@ -162,7 +161,9 @@
   </div>
 
   <div class="w3-hide-small" style="margin-bottom:32px"> </div>
-
+  <audio id="bgMusic" autoplay loop hidden>
+    <source src="music/bg-memory.mp3" type="audio/mp3">
+  </audio>
 </body>
 <script type="text/javascript">
   var sha256 = function sha256(ascii) {
@@ -282,7 +283,7 @@
       //     document.documentElement.requestFullscreen();
       //   }
       // }
-      document.body.scrollIntoView(true);
+      document.body.scrollTop(0);
     }
   }
 
