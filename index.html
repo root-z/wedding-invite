@@ -4,7 +4,7 @@
 <head>
   <title>Lina and Zane's Wedding</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="style.css">
@@ -272,6 +272,8 @@
     if (verificationCode === undefined || sha256(verificationCode) !== '7daea6d8b16078d32df277d20991cf89c0efbb13b7b7f4c55f6c3d35adc87ff9') {
       alert('Your invitation code is incorrect!');
     } else {
+
+
       document.getElementById('verification').remove();
       document.getElementById('main').hidden = false;
       document.getElementById('bgMusic').play();
@@ -281,6 +283,12 @@
       //   }
       // }
       window.scrollTo(0, 0);
+
+      // reset zoom to 100%. mainly to improve mobile experience
+      var scale = 'scale(1)';
+      document.body.style.webkitTransform = scale;    // Chrome, Opera, Safari
+      document.body.style.msTransform = scale;       // IE 9
+      document.body.style.transform = scale;     // General
     }
   }
 
