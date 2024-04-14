@@ -277,18 +277,15 @@
 
 
       document.getElementById('verification').remove();
-      document.getElementById('main').hidden = false;
+      mainBody = document.getElementById('main');
+      mainBody.hidden = false;
+      mainBody.scrollIntoView(true);
       document.getElementById('bgMusic').play();
       // if (isMobile()) {
       //   if (!document.fullscreenElement) {
       //     document.documentElement.requestFullscreen();
       //   }
       // }
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
     }
   }
 
