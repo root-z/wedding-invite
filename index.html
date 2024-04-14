@@ -279,7 +279,7 @@
       document.getElementById('verification').remove();
       mainBody = document.getElementById('main');
       mainBody.hidden = false;
-      mainBody.scrollIntoView(true);
+      mainBody.scrollIntoView({block: 'center'});
       document.getElementById('bgMusic').play();
       // if (isMobile()) {
       //   if (!document.fullscreenElement) {
