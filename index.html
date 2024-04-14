@@ -142,7 +142,8 @@
     <div class="w3-display-container w3-wide slides bgimg4" id="dress">
       <div class="w3-content image-text-dark w3-center lower-middle">
         <h1>Dress Code</h1>
-        <h3 style="font-family: 'Times';font-size: 22px;"><a href="https://www.brides.com/semi-formal-wedding-attire-4800687">Semi-Formal</a></h3>
+        <h3 style="font-family: 'Times';font-size: 22px;"><a
+            href="https://www.brides.com/semi-formal-wedding-attire-4800687">Semi-Formal</a></h3>
       </div>
     </div>
 
@@ -283,7 +284,11 @@
       //     document.documentElement.requestFullscreen();
       //   }
       // }
-      document.body.scrollTop(0);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   }
 
