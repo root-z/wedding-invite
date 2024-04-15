@@ -278,7 +278,7 @@
 
       document.getElementById('verification').remove();
       document.getElementById('main').hidden = false;
-      document.getElementById("date").scrollIntoView(true);
+      document.getElementById("date").scrollIntoView({block: "start", inline: "center"});
       document.getElementById('bgMusic').play();
       // if (isMobile()) {
       //   if (!document.fullscreenElement) {
