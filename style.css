@@ -32,6 +32,15 @@
   scroll-snap-align: start;
 }
 
+.verify {
+  width: 100%;
+  height: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
 .lower-middle {
   position: absolute;
   top: 65%;
